@@ -52,15 +52,15 @@
 *Dashboard dengan statistik lengkap dan grafik*
 
 ### Data Pasien
-![Patient List](docs/images/patients.png)
+![Patient List](docs/images/patient.png)
 *Daftar pasien dengan pagination*
 
 ### Rekam Medis
-![Medical Records](docs/images/medical-records.png)
+![Medical Records](docs/images/medical_record.png)
 *Manajemen rekam medis pasien*
 
 ### Detail Pasien
-![Patient Detail](docs/images/patient-detail.png)
+![Patient Detail](docs/images/detail_medical_record.png)
 *Detail informasi pasien dan riwayat kunjungan*
 
 ---
@@ -74,3 +74,51 @@
 - **Charts**: Chart.js
 - **PHP**: 8.2+
 - **Package Manager**: Composer, NPM
+
+### Langkah Instalasi
+
+#### 1. Clone Repository
+```bash
+git clone https://github.com/username/medical-record.git
+cd medical-record
+```
+
+#### 2. Install Dependencies
+```bash
+# Install PHP dependencies
+composer install
+
+# Install JavaScript dependencies
+npm install
+```
+
+#### 3. Environment Setup
+```bash
+# Copy file .env
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+```
+
+#### 4. Konfigurasi Database
+
+Edit file `.env`:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=medical_record
+DB_USERNAME=your_db_username
+DB_PASSWORD=your_password
+```
+
+Buat database:
+```bash
+mysql -u root -p
+```
+```sql
+CREATE DATABASE medical_record;
+EXIT;
+```
+
