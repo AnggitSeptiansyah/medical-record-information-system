@@ -60,7 +60,7 @@
 *Manajemen rekam medis pasien*
 
 ### Detail Pasien
-![Patient Detail](docs/images/detail_medical_record.png)
+![Patient Detail](docs/images/detail_patient.png)
 *Detail informasi pasien dan riwayat kunjungan*
 
 ---
