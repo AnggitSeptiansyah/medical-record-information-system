@@ -31,6 +31,15 @@
             <main>
                 {{ $slot }}
             </main>
+
+            <!-- Footer -->
+            <footer class="bg-white border-t border-gray-200 mt-12">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <p class="text-center text-sm text-gray-600">
+                        © Copyright 2026 Anggit Septiansyah, All Rights Reserved
+                    </p>
+                </div>
+            </footer>
         </div>
 
         <!-- ... existing scripts -->

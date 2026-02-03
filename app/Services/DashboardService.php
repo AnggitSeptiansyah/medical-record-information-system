@@ -33,26 +33,30 @@ class DashboardService
 
     public function getMonthlyVisits(): array
     {
-        // Database agnostic - works with both MySQL and SQLite
-        $records = MedicalRecord::where('visit_date', '>=', now()->subMonths(6))
-            ->get(['visit_date'])
-            ->groupBy(function($record) {
-                return $record->visit_date->format('Y-m');
-            })
-            ->map(function($group, $key) {
-                $date = Carbon::createFromFormat('Y-m', $key);
-                return [
-                    'month' => (int) $date->format('m'),
-                    'year' => (int) $date->format('Y'),
-                    'total' => $group->count(),
-                ];
-            })
-            ->sortBy('year')
-            ->sortBy('month')
-            ->values()
-            ->toArray();
+         // Database agnostic - works with both MySQL and SQLite
+    $records = MedicalRecord::where('visit_date', '>=', now()->subMonths(6))
+        ->get(['visit_date'])
+        ->groupBy(function($record) {
+            return $record->visit_date->format('Y-m');
+        })
+        ->map(function($group, $key) {
+            $date = Carbon::createFromFormat('Y-m', $key);
+            return [
+                'month' => (int) $date->format('m'),
+                'year' => (int) $date->format('Y'),
+                'total' => $group->count(),
+                'sort_key' => $key, // Tambahkan ini untuk sorting
+            ];
+        })
+        ->sortBy('sort_key') // Sort by year-month string (2025-08, 2025-09, dst)
+        ->values()
+        ->map(function($item) {
+            unset($item['sort_key']); // Remove sort_key sebelum return
+            return $item;
+        })
+        ->toArray();
 
-        return $records;
+    return $records;
     }
 
     public function getRecentRecords(int $limit = 5)
