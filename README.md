@@ -79,7 +79,7 @@
 
 #### 1. Clone Repository
 ```bash
-git clone https://github.com/username/medical-record.git
+git clone https://github.com/AnggitSeptiansyah/medical-record-information-system.git
 cd medical-record
 ```
 
