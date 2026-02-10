@@ -72,7 +72,7 @@
         
         <div class="flex gap-6 justify-center">
             <a href="{{ route('login') }}" 
-               class="bg-white text-indigo-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition shadow-lg">
+               class="bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition shadow-lg">
                 Login
             </a>
         </div>
